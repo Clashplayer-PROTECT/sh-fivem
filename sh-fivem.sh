@@ -22,7 +22,7 @@ COLOR2='\033[0;31m'                                         #red color
 NC='\033[0m'                                                #no color
 
  if [ "$(id -u)" != "0" ]; then
-         printf "${RED}ERREUR : Crohosting n'a pas accès root. ⛔️\\n" 1>&2
+         printf "${RED}ERREUR : SH-FIVEM  n'a pas accès root. ⛔️\\n" 1>&2
          printf "\\n"
          exit 1
  fi
