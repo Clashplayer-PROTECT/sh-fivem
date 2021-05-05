@@ -93,7 +93,7 @@ if [[ "$reponse" == "o" ]]
 then 
 printf "${CYAN} Démarrage de l'instalaltion de phpMyAdmin pour serveur Five M !"
     apt install phpmyadmin
-
+    ln -s /usr/share/phpmyadmin/ /var/www/html/phpmyadmin
     echo "Lien du phpMyAdmin : http://$(hostname -I)/phpmyadmin/"
 fi
 
