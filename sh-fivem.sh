@@ -76,7 +76,7 @@ printf "${CYAN} Démarrage de l'instalaltion de MARIADB pour serveur Five M !"
     apt update
     sudo add-apt-repository ppa:ondrej/php
     sudo apt-get update
-    sudo apt-get install phpmyadmin php-mbstring php-gettext
+    sudo apt-get install php-mbstring php-gettext
     sudo apt -y install php7.4
     apt install -y php7.4-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} mariadb-client mariadb-server apache2 tar unzip git 
     php -v
