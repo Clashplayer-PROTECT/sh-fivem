@@ -4,6 +4,8 @@
 bash <(wget -O - 'https://raw.githubusercontent.com/Clashplayer-PROTECT/sh-fivem/master/sh-fivem.sh')
 ```
 
+# Si vous avez besoin d'aide ou avez une question sur le script, contactez-moi sur discord par Clashplayer#3630
+
 # Créaction de votre user pour phpmyadmin :)
 ```
 sudo mysql -u root
