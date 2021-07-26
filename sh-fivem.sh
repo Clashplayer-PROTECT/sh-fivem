@@ -19,6 +19,7 @@ EOF
 supported="Ubuntu"
 COLOR1='\033[0;32m'                                         #green color
 COLOR2='\033[0;31m'                                         #red color
+COLOR3='\33[0;33m'
 NC='\033[0m'                                                #no color
 
  if [ "$(id -u)" != "0" ]; then
@@ -81,28 +82,28 @@ printf "${CYAN} Démarrage de l'instalaltion de MARIADB pour serveur Five M !"
 fi
 sleep 2
 
-echo -n -e "${GREEN}Quel est le nom de votre base de données ? ? ${YELLOW}(sh_base)${reset}: "
+echo -n -e "${GREEN}Quel est le nom de votre base de données ❓ ${YELLOW}(sh_base)${reset}: "
 read -r DBNAME
 
 if [[ "$DBNAME" == "" ]]; then
   DBNAME="sh_base"  
 fi
 
-echo -n -e "${GREEN}Quel est l'utilisateur de votre base de données ? ? ${YELLOW}(sh-fivem)${reset}: "
+echo -n -e "${GREEN}Quel est l'utilisateur de votre base de données ❓ ${YELLOW}(sh-fivem)${reset}: "
 read -r DBUSER
 
 if [[ "$DBUSER" == "" ]]; then
   DBUSER="sh-fivem"  
 fi
 
-echo -n -e "${GREEN}Quel est le mot de passe de votre base de données ? ?${reset}: "
+echo -n -e "${GREEN}Quel est le mot de passe de votre base de données ❓ ${reset}: "
 read -s -r DBPASS
 
 while true; do
 
   if [[ "$DBPASS" == "" ]]; then
     echo -e "${red}Le mot de passe doit être obligatoire !"
-    echo -n -e "${GREEN}Quel est le mot de passe de votre base de données ? ?${reset}: "
+    echo -n -e "${GREEN}Quel est le mot de passe de votre base de données ❓ ${reset}: "
     read -s -r DBPASS
   else
     echo -e "${GREEN}Le mot de passe est correct !${reset}" 
@@ -133,6 +134,21 @@ echo -e "Configuration de la utilisateur"
   mysql -e "FLUSH PRIVILEGES;"
   
 
+  sleep 3
+    printf "${COLOR3} L'installation est terminée ! \\n"
+    printf "${COLOR3} Discord de SH-FIVEM : https://discord.gg/Bx5UUV54mu \\n"
+    printf "${COLOR3} Github de Clahsplayer sur SH-FIVEM: https://github.com/Clashplayer-PROTECT/sh-fivem \\n"
+    sleep 3
+    printf "${COLOR1} TOPO du MYSQL: ${DBNAM} \\n"
+    printf "${COLOR1} Nom de la base de données MySQL: ${DBNAM} \\n"
+    printf "${COLOR1} Nom d'hôte de la base de données MySQL: ${DBHOST} \\n"
+    printf "${COLOR1} Nom d'utilisateur de la base de données MySQL: ${DBUSER}: ${DBNAM} \\n"
+    sleep 3
+    printf "${COLOR2}💻 TOPO sur créaction de votre seveur ! \\n"
+    printf "${COLOR2}💻 Chemin du dossier  : /home/fivem \\n"
+    printf "${COLOR2}💻 Ne surtout pas supprime run.sh et alpine\\n"
+    printf "${NC}\\n"    
+
 
 cat << "EOF"
    _____ __  __      ___________    __________  ___
@@ -142,22 +158,3 @@ cat << "EOF"
 /____/_/ /_/     /_/   /___/  |___/_____/_/  /_/   
                                                    
 EOF
-
-bye() {
-
-  echo "L'installation est terminée !"
-  echo "Discord de SH-FIVEM : https://discord.gg/Bx5UUV54mu"
-  echo "Github de Clahsplayer sur SH-FIVEM: https://github.com/Clashplayer-PROTECT/sh-fivem"
-  sleep 3
-  echo "TOPO du MYSQL !"
-  echo "${GREEN} Nom de la base de données MySQL: ${DBNAME}"
-  echo "${GREEN} Nom d'hôte de la base de données MySQL: ${DBHOST}"
-  echo "${GREEN} Nom d'utilisateur de la base de données MySQL: ${DBUSER}"
-  sleep 3
-  echo "${RED} TOPO sur créaction de votre seveur !" 
-  echo "${RED} Chemin du dossier  : /home/fivem" 
-  echo "${RED} Ne surtout pas supprime run.sh et alpine" 
-
-
-  exit 1
-}
