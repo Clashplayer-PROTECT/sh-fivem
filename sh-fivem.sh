@@ -81,13 +81,6 @@ printf "${CYAN} Démarrage de l'instalaltion de MARIADB pour serveur Five M !"
 fi
 sleep 2
 
-echo -n -e "${GREEN}Quel est le nom d'hôte de votre base de données ? ? ${YELLOW}(127.0.0.1)${reset}: "
-read -r DBHOST
-
-if [[ "$DBHOST" == "" ]]; then
-  DBHOST="127.0.0.1"
-fi
-
 echo -n -e "${GREEN}Quel est le nom de votre base de données ? ? ${YELLOW}(sh_base)${reset}: "
 read -r DBNAME
 
@@ -131,10 +124,9 @@ printf "${CYAN} Démarrage de l'instalaltion de phpMyAdmin pour serveur Five M !
     echo "Lien du phpMyAdmin : http://$(hostname -I)/phpmyadmin/"
 fi
 
-echo -e "Configuration de la \e[5mDatabase"
+echo -e "Configuration de la utilisateur"
   echo "Mettre le mot de passe root de MySQL"
   sleep 2
-  mysql -u root
   mysql -e "CREATE USER '${DBUSER}'@'localhost' IDENTIFIED BY '${DBPASS}';"
   mysql -e "CREATE DATABASE ${DBNAME};"
   mysql -p -e "GRANT ALL PRIVILEGES ON * . * TO '${DBUSER}'@'localhost';"
