@@ -128,7 +128,7 @@ printf "${CYAN} Démarrage de l'instalaltion de phpMyAdmin pour serveur Five M !
     apt install phpmyadmin
     sudo service apache2 restart
     ln -s /usr/share/phpmyadmin/ /var/www/html/phpmyadmin
-    echo "Lien du phpMyAdmin : http://$(hostname-I)/phpmyadmin/"
+    echo "Lien du phpMyAdmin : http://$(hostname -I)/phpmyadmin/"
 fi
 
 echo -e "Configuration de la \e[5mDatabase"
