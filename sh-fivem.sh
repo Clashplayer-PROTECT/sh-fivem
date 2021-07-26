@@ -139,10 +139,11 @@ echo -e "Configuration de la utilisateur"
     printf "${COLOR3} Discord de SH-FIVEM : https://discord.gg/Bx5UUV54mu \\n"
     printf "${COLOR3} Github de Clahsplayer sur SH-FIVEM: https://github.com/Clashplayer-PROTECT/sh-fivem \\n"
     sleep 3
-    printf "${COLOR1} TOPO du MYSQL: ${DBNAM} \\n"
+    printf "${COLOR1} TOPO du MYSQL \\n"
     printf "${COLOR1} Nom de la base de données MySQL: ${DBNAM} \\n"
-    printf "${COLOR1} Nom d'hôte de la base de données MySQL: ${DBHOST} \\n"
-    printf "${COLOR1} Nom d'utilisateur de la base de données MySQL: ${DBUSER}: ${DBNAM} \\n"
+    printf "${COLOR1} Nom d'utilisateur de la base de données MySQL: ${DBUSER}\\n"
+    printf "${COLOR1} Mot de passe de connexion base de données MySQL: ${DBPASS} \\n"
+
     sleep 3
     printf "${COLOR2}💻 TOPO sur créaction de votre seveur ! \\n"
     printf "${COLOR2}💻 Chemin du dossier  : /home/fivem \\n"
