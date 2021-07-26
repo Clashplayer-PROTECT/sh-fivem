@@ -14,3 +14,10 @@ GRANT ALL PRIVILEGES ON * . * TO 'TON-USER'@'localhost';
 FLUSH PRIVILEGES;
 quit
 ```
+
+
+# Démaragge de votre serveur 
+```
+cd /home/fivem
+bash /home/fivem/run.sh +exec server.cfg
+```
