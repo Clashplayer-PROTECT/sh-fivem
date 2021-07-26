@@ -134,7 +134,7 @@ fi
 echo -e "Configuration de la \e[5mDatabase"
   echo "Mettre le mot de passe root de MySQL"
   sleep 2
-  mysql -e "USE mysql;"
+  mysql -u root
   mysql -e "CREATE USER '${DBUSER}'@'${DBHOST}' IDENTIFIED BY '${DBPASS}';"
   mysql -e "CREATE DATABASE ${DBNAME};"
   mysql -p -e "GRANT ALL PRIVILEGES ON ${DBNAME}.* TO '${DBUSER}'@'${DBHOST}' WITH GRANT OPTION;"
