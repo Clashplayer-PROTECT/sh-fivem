@@ -89,6 +89,7 @@ if [[ "$DBNAME" == "" ]]; then
   DBNAME="sh_base"  
 fi
 
+sleep 2
 echo -n -e "${GREEN}Quel est l'utilisateur de votre base de données ❓ ${YELLOW}(sh-fivem)${reset}: "
 read -r DBUSER
 
@@ -96,6 +97,7 @@ if [[ "$DBUSER" == "" ]]; then
   DBUSER="sh-fivem"  
 fi
 
+sleep 2
 echo -n -e "${GREEN}Quel est le mot de passe de votre base de données ❓ ${reset}: "
 read -s -r DBPASS
 
@@ -122,7 +124,6 @@ printf "${CYAN} Démarrage de l'instalaltion de phpMyAdmin pour serveur Five M !
     apt install phpmyadmin
     sudo service apache2 restart
     ln -s /usr/share/phpmyadmin/ /var/www/html/phpmyadmin
-    echo "Lien du phpMyAdmin : http://$(hostname -I)/phpmyadmin/"
 fi
 
 echo -e "Configuration de la utilisateur"
@@ -138,12 +139,13 @@ echo -e "Configuration de la utilisateur"
     printf "${COLOR3} L'installation est terminée ! \\n"
     printf "${COLOR3} Discord de SH-FIVEM : https://discord.gg/Bx5UUV54mu \\n"
     printf "${COLOR3} Github de Clahsplayer sur SH-FIVEM: https://github.com/Clashplayer-PROTECT/sh-fivem \\n"
+    echo -en '\n'
     sleep 3
     printf "${COLOR1} TOPO du MYSQL \\n"
-    printf "${COLOR1} Nom de la base de données MySQL: ${DBNAM} \\n"
+    printf "${COLOR1} Lien du phpMyAdmin : http://$(hostname -I)/phpmyadmin/ \\n"
     printf "${COLOR1} Nom d'utilisateur de la base de données MySQL: ${DBUSER}\\n"
     printf "${COLOR1} Mot de passe de connexion base de données MySQL: ${DBPASS} \\n"
-
+    echo -en '\n'
     sleep 3
     printf "${COLOR2}💻 TOPO sur créaction de votre seveur ! \\n"
     printf "${COLOR2}💻 Chemin du dossier  : /home/fivem \\n"
