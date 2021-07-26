@@ -132,6 +132,7 @@ printf "${CYAN} Démarrage de l'instalaltion de phpMyAdmin pour serveur Five M !
 fi
 
 echo -e "Configuration de la \e[5mDatabase"
+  echo "Mettre le mot de passe root de MySQL"
   sleep 2
   mysql -e "USE mysql;"
   mysql -e "CREATE USER '${DBUSER}'@'${DBHOST}' IDENTIFIED BY '${DBPASS}';"
