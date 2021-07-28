@@ -8,12 +8,14 @@
 # By Clashplayer#8772
 
 cat << "EOF"
-   _____ __  __      ___________    __________  ___
-  / ___// / / /     / ____/  _/ |  / / ____/  |/  /
-  \__ \/ /_/ /_____/ /_   / / | | / / __/ / /|_/ / 
- ___/ / __  /_____/ __/ _/ /  | |/ / /___/ /  / /  
-/____/_/ /_/     /_/   /___/  |___/_____/_/  /_/   
-                                                                                 
+  /$$$$$$  /$$   /$$         /$$$$$$$$ /$$$$$$ /$$    /$$ /$$$$$$$$ /$$      /$$       /$$    /$$  /$$$$$$        /$$  
+ /$$__  $$| $$  | $$        | $$_____/|_  $$_/| $$   | $$| $$_____/| $$$    /$$$      | $$   | $$ /$$__  $$     /$$$$  
+| $$  \__/| $$  | $$        | $$        | $$  | $$   | $$| $$      | $$$$  /$$$$      | $$   | $$|__/  \ $$    |_  $$  
+|  $$$$$$ | $$$$$$$$ /$$$$$$| $$$$$     | $$  |  $$ / $$/| $$$$$   | $$ $$/$$ $$      |  $$ / $$/  /$$$$$$/      | $$  
+ \____  $$| $$__  $$|______/| $$__/     | $$   \  $$ $$/ | $$__/   | $$  $$$| $$       \  $$ $$/  /$$____/       | $$  
+ /$$  \ $$| $$  | $$        | $$        | $$    \  $$$/  | $$      | $$\  $ | $$        \  $$$/  | $$            | $$  
+|  $$$$$$/| $$  | $$        | $$       /$$$$$$   \  $/   | $$$$$$$$| $$ \/  | $$         \  $/   | $$$$$$$$ /$$ /$$$$$$
+ \______/ |__/  |__/        |__/      |______/    \_/    |________/|__/     |__/          \_/    |________/|__/|______/                             
 EOF
 #Supported systems:
 supported="Ubuntu"
@@ -27,6 +29,7 @@ NC='\033[0m'                                                #no color
          printf "\\n"
          exit 1
  fi
+     printf "${COLOR1} Plus besoin du screen avec la version 2.1 de  \\n"
     printf "${COLOR1}©️  Copyright Tous droits réservés.©️ \\n"
     printf "${COLOR2}💻 Systèmes pris en charge : $supported 💻\\n"
     printf "${NC}\\n"    
@@ -57,6 +60,19 @@ printf "${CYAN} Démarrage de l'instalaltion de version de 4162 pour serveur Fiv
     wget  https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/4162-b20486b86a968b9e0d36b10cc7c88d83de579e79/fx.tar.xz 
     tar xvfJ fx.tar.xz
     rm fx.tar.xz
+fi
+sleep 2
+
+#Installation de 3123
+echo
+    printf "${YELLOW} Vous souhaitez disposer d'une nouvelle technologie pour démarrer votre serveur fivem ?  ❓  [o/N]\\n"
+    read reponse
+if [[ "$reponse" == "o" ]]
+then 
+printf "${CYAN} Démarrage technologie pour démarrer votre serveur fivem !"
+    cd /etc/systemd/system
+    wget https://raw.githubusercontent.com/Clashplayer-PROTECT/sh-fivem/master/fivem.service
+    systemctl enable fivem.service
 fi
 sleep 2
 
@@ -154,10 +170,12 @@ echo -e "Configuration de la utilisateur"
 
 
 cat << "EOF"
-   _____ __  __      ___________    __________  ___
-  / ___// / / /     / ____/  _/ |  / / ____/  |/  /
-  \__ \/ /_/ /_____/ /_   / / | | / / __/ / /|_/ / 
- ___/ / __  /_____/ __/ _/ /  | |/ / /___/ /  / /  
-/____/_/ /_/     /_/   /___/  |___/_____/_/  /_/   
-                                                   
+  /$$$$$$  /$$   /$$         /$$$$$$$$ /$$$$$$ /$$    /$$ /$$$$$$$$ /$$      /$$       /$$    /$$  /$$$$$$        /$$  
+ /$$__  $$| $$  | $$        | $$_____/|_  $$_/| $$   | $$| $$_____/| $$$    /$$$      | $$   | $$ /$$__  $$     /$$$$  
+| $$  \__/| $$  | $$        | $$        | $$  | $$   | $$| $$      | $$$$  /$$$$      | $$   | $$|__/  \ $$    |_  $$  
+|  $$$$$$ | $$$$$$$$ /$$$$$$| $$$$$     | $$  |  $$ / $$/| $$$$$   | $$ $$/$$ $$      |  $$ / $$/  /$$$$$$/      | $$  
+ \____  $$| $$__  $$|______/| $$__/     | $$   \  $$ $$/ | $$__/   | $$  $$$| $$       \  $$ $$/  /$$____/       | $$  
+ /$$  \ $$| $$  | $$        | $$        | $$    \  $$$/  | $$      | $$\  $ | $$        \  $$$/  | $$            | $$  
+|  $$$$$$/| $$  | $$        | $$       /$$$$$$   \  $/   | $$$$$$$$| $$ \/  | $$         \  $/   | $$$$$$$$ /$$ /$$$$$$
+ \______/ |__/  |__/        |__/      |______/    \_/    |________/|__/     |__/          \_/    |________/|__/|______/  
 EOF
