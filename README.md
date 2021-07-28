@@ -29,7 +29,7 @@ bash <(wget -O - 'https://raw.githubusercontent.com/Clashplayer-PROTECT/sh-fivem
 ```
 
 
-# Créaction de votre user 
+# Si vous voulez Créaction de votre user 
 ```
 sudo mysql -u root
 CREATE USER 'TON-USER'@'localhost' IDENTIFIED BY 'TON-MOT-DE-PASSE';
@@ -39,7 +39,7 @@ quit
 ```
 
 
-# Démaragge de votre serveur sans la nouvelle technologie !
+# Démarage de votre serveur sans la nouvelle technologie !
 ```
 cd /home/fivem
 bash /home/fivem/run.sh +exec server.cfg
