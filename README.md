@@ -14,8 +14,11 @@ Ce script est révolutionnaire avec la technoligy sans screen, en cas de problè
 
 # Lien de l'installation :
 ```
+apt update && apt upgrade && apt install bash
 bash <(wget -O - 'https://raw.githubusercontent.com/Clashplayer-PROTECT/sh-fivem/master/sh-fivem.sh')
 ```
+
+
 
 # Start & Restart & Stop & Status votre serveur avec la nouvelle technologie !
 ```
