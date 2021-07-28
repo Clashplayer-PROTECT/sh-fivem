@@ -9,12 +9,13 @@ Alors arrêtez de faire les fous avec échec de l'installation en raison d'une d
 
 Ce script est révolutionnaire avec la technoligy sans screen, en cas de problème sur votre serveur linux et que vous êtes obligé de redémarrer par la commande : [bash  /home/fivem/run.sh +exec server.cfg  ] plus besoin avec la technoligy cela est automatique !
 
+ Si vous avez besoin d'aide ou avez une question sur le script, contactez-moi sur discord par Clashplayer#3630
+
+
+#Lien de l'installation :
 ```
 bash <(wget -O - 'https://raw.githubusercontent.com/Clashplayer-PROTECT/sh-fivem/master/sh-fivem.sh')
 ```
-
- Si vous avez besoin d'aide ou avez une question sur le script, contactez-moi sur discord par Clashplayer#3630
-
 
 # Start & Restart & Stop & Status votre serveur avec la nouvelle technologie !
 ```
@@ -28,7 +29,7 @@ bash <(wget -O - 'https://raw.githubusercontent.com/Clashplayer-PROTECT/sh-fivem
 ```
 
 
-# Créaction de votre user pour phpmyadmin 
+# Créaction de votre user 
 ```
 sudo mysql -u root
 CREATE USER 'TON-USER'@'localhost' IDENTIFIED BY 'TON-MOT-DE-PASSE';
@@ -38,7 +39,7 @@ quit
 ```
 
 
-# Démaragge de votre serveur 
+# Démaragge de votre serveur sans la nouvelle technologie !
 ```
 cd /home/fivem
 bash /home/fivem/run.sh +exec server.cfg
