@@ -29,7 +29,7 @@ bash <(wget -O - 'https://raw.githubusercontent.com/Clashplayer-PROTECT/sh-fivem
 ```
 
 
-# Si vous voulez Créaction de votre user 
+# Vous souhaitre crée un deuxième user ?
 ```
 sudo mysql -u root
 CREATE USER 'TON-USER'@'localhost' IDENTIFIED BY 'TON-MOT-DE-PASSE';
