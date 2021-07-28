@@ -6,6 +6,29 @@ bash <(wget -O - 'https://raw.githubusercontent.com/Clashplayer-PROTECT/sh-fivem
 
  Si vous avez besoin d'aide ou avez une question sur le script, contactez-moi sur discord par Clashplayer#3630
 
+
+# Start votre serveur avec la nouvelle technologie !
+```
+ service fivem start
+```
+
+# Restart votre serveur avec la nouvelle technologie !
+```
+ service fivem restart
+```
+
+
+# Stop votre serveur avec la nouvelle technologie !
+```
+ service fivem stop
+```
+
+# Status votre serveur avec la nouvelle technologie !
+```
+ service fivem status
+```
+
+
 # Créaction de votre user pour phpmyadmin :)
 ```
 sudo mysql -u root
