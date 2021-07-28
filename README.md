@@ -11,10 +11,13 @@ Ce script est révolutionnaire avec la technoligy sans screen, en cas de problè
 
  Si vous avez besoin d'aide ou avez une question sur le script, contactez-moi sur discord par Clashplayer#3630
 
+# Si vous avez BASH n'est pas installé :
+```
+apt install bash
+```
 
 # Lien de l'installation :
 ```
-apt update && apt upgrade && apt install bash
 bash <(wget -O - 'https://raw.githubusercontent.com/Clashplayer-PROTECT/sh-fivem/master/sh-fivem.sh')
 ```
 
