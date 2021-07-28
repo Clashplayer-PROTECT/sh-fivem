@@ -1,5 +1,11 @@
 # Installation automatique pour un serveur fivem avec mysql sur Ubuntu 18.04
 
+Fatigué d'être géré par un hébergeur GAME mais vous souhaitez avoir un VPS ou un serveur dédié pour votre serveur sous LINUX.
+Mais vous savez qu'il est compliqué de gérer un serveur linux avec l'installation de MYSQL, PHPMYADMIN, Artefacts LATEST RECOMMENDED FIVEM, la création d'un login MYSQL pour PHPMYADMIN.
+Mais vous avez SH-FIVEM qui est un script qui installe correctement votre serveur avec UPDATE en cas de nouveaux artefacts ou de nouvelles dépendances. 
+Alors arrêtez de faire les fous avec échec de l'installation en raison d'une documentation périmée !
+Ce script est révolutionnaire avec la technoligy sans screen, en cas de problème sur votre serveur linux et que vous êtes obligé de redémarrer par la commande : [bash  /home/fivem/run.sh +exec server.cfg  ] plus besoin avec la technoligy cela est automatique !
+
 ```
 bash <(wget -O - 'https://raw.githubusercontent.com/Clashplayer-PROTECT/sh-fivem/master/sh-fivem.sh')
 ```
@@ -7,24 +13,14 @@ bash <(wget -O - 'https://raw.githubusercontent.com/Clashplayer-PROTECT/sh-fivem
  Si vous avez besoin d'aide ou avez une question sur le script, contactez-moi sur discord par Clashplayer#3630
 
 
-# Start votre serveur avec la nouvelle technologie !
+# Start & Restart & Stop & Status votre serveur avec la nouvelle technologie !
 ```
  service fivem start
-```
 
-# Restart votre serveur avec la nouvelle technologie !
-```
  service fivem restart
-```
 
-
-# Stop votre serveur avec la nouvelle technologie !
-```
  service fivem stop
-```
 
-# Status votre serveur avec la nouvelle technologie !
-```
  service fivem status
 ```
 
