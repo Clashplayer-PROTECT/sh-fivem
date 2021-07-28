@@ -1,0 +1,10 @@
+[Unit]
+Description=SH-FIVEM
+
+[Service]
+WorkingDirectory=/home/fivem/
+ExecStart=/bin/sh /home/fivem/run.sh +exec server.cfg
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
