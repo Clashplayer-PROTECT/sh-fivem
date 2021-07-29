@@ -11,6 +11,8 @@ Ce script est révolutionnaire avec la technologie sans screen, en cas de probl�
 
  Si vous avez besoin d'aide ou avez une question sur le script, contactez-moi sur discord par Clashplayer#3630
 
+Psss merci à MathiAs2Pique pour les quelques modifications :)
+
 # Si BASH n'est pas installé :
 ```
 apt install bash
