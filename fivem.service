@@ -5,6 +5,8 @@ Description=SH-FIVEM
 WorkingDirectory=/home/fivem/
 ExecStart=/bin/sh /home/fivem/run.sh +exec server.cfg
 KillMode=process
+Type=simple
+Restart=always
 
 [Install]
 WantedBy=multi-user.target
