@@ -78,11 +78,11 @@ sleep 2
 
 # Installation MARIADB
 echo
-    printf "${YELLOW} Souhaitez-vous crée une installation automatique de MARIADB   ❓ [o/N]\\n"
+    printf "${YELLOW} Souhaitez-vous créer une installation automatique de MariaDB   ❓ [o/N]\\n"
     read reponse
 if [[ "$reponse" == "o" ]]
 then 
-printf "${CYAN} Démarrage de l'instalaltion de MARIADB pour serveur Five M !"
+printf "${CYAN} Démarrage de l'instalaltion de MariaDB pour serveur FiveM !"
     apt -y install software-properties-common curl apt-transport-https ca-certificates gnupg
     LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php
     add-apt-repository -y ppa:chris-lea/redis-server
@@ -157,7 +157,7 @@ echo -e "Configuration de la utilisateur"
     printf "${COLOR3} Github de Clahsplayer sur SH-FIVEM: https://github.com/Clashplayer-PROTECT/sh-fivem \\n"
     echo -en '\n'
     sleep 3
-    printf "${COLOR1} TOPO du MYSQL \\n"
+    printf "${COLOR1} TOPO du MySQL \\n"
     printf "${COLOR1} Lien du phpMyAdmin : http://$(hostname -I)/phpmyadmin/ \\n"
     printf "${COLOR1} Nom d'utilisateur de la base de données MySQL: ${DBUSER}\\n"
     printf "${COLOR1} Mot de passe de connexion base de données MySQL: ${DBPASS} \\n"
