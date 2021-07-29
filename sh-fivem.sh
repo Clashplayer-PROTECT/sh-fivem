@@ -59,7 +59,7 @@ printf "${CYAN} Démarrage de l'instalaltion de version de 4162 pour serveur Fiv
 fi
 sleep 2
 
-#Installation de 3123
+#Installation de SYSTEMCTL
 echo
     printf "${YELLOW} Vous souhaitez disposer d'une nouvelle technologie pour démarrer votre serveur fivem ?  ❓  [o/N]\\n"
     read reponse
