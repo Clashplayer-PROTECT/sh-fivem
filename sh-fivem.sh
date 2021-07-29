@@ -37,15 +37,9 @@ NC='\033[0m'                                                #no color
 #############################################################################
 
 # Prérequis installation Five M
-apt update
-apt upgrade
-apt install sudo
-apt install xz-utils
-apt install git
-apt install curl
-apt install screen
-apt update
-apt upgrade
+apt update -y
+apt upgrade -y
+apt install sudo xz-utils git curl screen sed -y
 
 #Installation de 3123
 echo
@@ -55,10 +49,12 @@ if [[ "$reponse" == "o" ]]
 then 
 printf "${CYAN} Démarrage de l'instalaltion de version de 4162 pour serveur Five M !"
     cd /home/
-    mkdir fivem
+    mkdir -p fivem
     cd /home/fivem
     wget  https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/4162-b20486b86a968b9e0d36b10cc7c88d83de579e79/fx.tar.xz 
     tar xvfJ fx.tar.xz
+    # Suppression du cache automatique
+    sed -i '1irm -r cache' run.sh
     rm fx.tar.xz
 fi
 sleep 2
@@ -78,18 +74,18 @@ sleep 2
 
 # Installation MARIADB
 echo
-    printf "${YELLOW} Souhaitez-vous crée une installation automatique de MARIADB   ❓ [o/N]\\n"
+    printf "${YELLOW} Souhaitez-vous créer une installation automatique de MariaDB   ❓ [o/N]\\n"
     read reponse
 if [[ "$reponse" == "o" ]]
 then 
-printf "${CYAN} Démarrage de l'instalaltion de MARIADB pour serveur Five M !"
+printf "${CYAN} Démarrage de l'instalaltion de MariaDB pour serveur FiveM !"
     apt -y install software-properties-common curl apt-transport-https ca-certificates gnupg
     LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php
     add-apt-repository -y ppa:chris-lea/redis-server
     curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | sudo bash
-    apt update
+    apt update -y
     sudo add-apt-repository ppa:ondrej/php
-    sudo apt-get update
+    sudo apt-get update -y
     sudo apt-get install php-mbstring php-gettext
     sudo apt -y install php7.4
     apt install -y php7.4-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} mariadb-client mariadb-server apache2 tar unzip git 
@@ -157,7 +153,7 @@ echo -e "Configuration de la utilisateur"
     printf "${COLOR3} Github de Clahsplayer sur SH-FIVEM: https://github.com/Clashplayer-PROTECT/sh-fivem \\n"
     echo -en '\n'
     sleep 3
-    printf "${COLOR1} TOPO du MYSQL \\n"
+    printf "${COLOR1} TOPO du MySQL \\n"
     printf "${COLOR1} Lien du phpMyAdmin : http://$(hostname -I)/phpmyadmin/ \\n"
     printf "${COLOR1} Nom d'utilisateur de la base de données MySQL: ${DBUSER}\\n"
     printf "${COLOR1} Mot de passe de connexion base de données MySQL: ${DBPASS} \\n"
