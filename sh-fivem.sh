@@ -54,7 +54,7 @@ printf "${CYAN} Démarrage de l'instalaltion de version de 4162 pour serveur Fiv
     wget  https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/4162-b20486b86a968b9e0d36b10cc7c88d83de579e79/fx.tar.xz 
     tar xvfJ fx.tar.xz
     # Suppression du cache automatique
-    sed -i '1irm -r cache' run.sh
+    # sed -i '1irm -r cache' run.sh
     rm fx.tar.xz
 fi
 sleep 2
