@@ -14,8 +14,9 @@ Ce script est révolutionnaire avec la technologie sans screen, en cas de probl�
 Psss merci à MathiAs2Pique pour les quelques modifications :)
 
 
-Durée de l'instalaltion :
-![alt text](https://prnt.sc/1iclfte) 
+Durée de l'instalaltion sur un VPS OVH :
+ ![alt text](https://i.imgur.com/5yTjY4R.png) 
+
 
 # Si BASH n'est pas installé :
 ```
