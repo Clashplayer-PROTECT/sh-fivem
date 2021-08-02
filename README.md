@@ -13,6 +13,10 @@ Ce script est révolutionnaire avec la technologie sans screen, en cas de probl�
 
 Psss merci à MathiAs2Pique pour les quelques modifications :)
 
+
+Durée de l'instalaltion :
+[https://prnt.sc/1iclfte]
+
 # Si BASH n'est pas installé :
 ```
 apt install bash
