@@ -14,9 +14,6 @@ Ce script est révolutionnaire avec la technologie sans screen, en cas de probl�
 Psss merci à MathiAs2Pique pour les quelques modifications :)
 
 
-Durée de l'instalaltion sur un VPS OVH :
- ![alt text](https://imgur.com/a/FSBjF52) 
-
 
 # Si BASH n'est pas installé :
 ```
@@ -57,3 +54,5 @@ quit
 cd /home/fivem
 bash /home/fivem/run.sh +exec server.cfg
 ```
+Durée de l'instalaltion sur un VPS OVH :
+ ![alt text](https://imgur.com/a/FSBjF52)
