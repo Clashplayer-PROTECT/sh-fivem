@@ -27,13 +27,13 @@ bash <(wget -O - 'https://raw.githubusercontent.com/Clashplayer-PROTECT/sh-fivem
 
 # Start & Restart & Stop & Status votre serveur avec la nouvelle technologie !
 ```
- systemctl start fivem.service
+systemctl fivem start
 
- systemctl restart fivem.service
+systemctl fivem restart
 
- systemctl stop fivem.service
- 
- systemctl status status
+systemctl fivem stop
+
+systemctl fivem status
 ```
 
 
