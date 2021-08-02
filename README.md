@@ -15,7 +15,7 @@ Psss merci à MathiAs2Pique pour les quelques modifications :)
 
 
 Durée de l'instalaltion :
-![alt text](https://prnt.sc/1iclfte]) 
+![alt text](https://prnt.sc/1iclfte) 
 
 # Si BASH n'est pas installé :
 ```
