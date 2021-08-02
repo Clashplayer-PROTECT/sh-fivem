@@ -55,4 +55,4 @@ cd /home/fivem
 bash /home/fivem/run.sh +exec server.cfg
 ```
 Durée de l'instalaltion sur un VPS OVH :
- ![alt text](https://imgur.com/a/FSBjF52.png)
+ ![alt text](https://i.imgur.com/FSBjF52.png)
