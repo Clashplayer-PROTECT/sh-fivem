@@ -47,7 +47,7 @@ echo
     read reponse
 if [[ "$reponse" == "o" ]]
 then 
-printf "${CYAN} Démarrage de l'instalaltion de version de 4162 pour serveur Five M !"
+printf "${CYAN} Démarrage de l'instalaltion de version de 4304 pour serveur Five M !"
     cd /home/
     mkdir -p fivem
     cd /home/fivem
