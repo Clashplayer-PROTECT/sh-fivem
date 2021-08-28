@@ -43,15 +43,15 @@ apt install sudo xz-utils git curl screen sed -y
 
 #Installation de 4304
 echo
-    printf "${YELLOW} LAST NEW Artifacts : Souhaitez-vous instalaltion du serveur Five M avec la version de 4162 ❓  [o/N]\\n"
+    printf "${YELLOW} LAST NEW Artifacts : Souhaitez-vous instalaltion du serveur Five M avec la version de 4394 ❓  [o/N]\\n"
     read reponse
 if [[ "$reponse" == "o" ]]
 then 
-printf "${CYAN} Démarrage de l'instalaltion de version de 4304 pour serveur Five M !"
+printf "${CYAN} Démarrage de l'instalaltion de version de 4394 pour serveur Five M !"
     cd /home/
     mkdir -p fivem
     cd /home/fivem
-    wget  https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/4304-e6242ce0c0aab30473a76eac9ff46466eb82e7de/fx.tar.xz 
+    wget  https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/4394-572b000db3f5a323039e0915dac64641d1db408e/fx.tar.xz 
     tar xvfJ fx.tar.xz
     # Suppression du cache automatique
     # sed -i '1irm -r cache' run.sh
