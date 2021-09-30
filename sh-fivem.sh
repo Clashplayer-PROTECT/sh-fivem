@@ -41,7 +41,7 @@ apt update -y
 apt upgrade -y
 apt install sudo xz-utils git curl screen sed -y
 
-#Installation de 4304
+#Installation de 4687
 echo
     printf "${YELLOW} LAST NEW Artifacts : Souhaitez-vous instalaltion du serveur Five M avec la version de 4394 ❓  [o/N]\\n"
     read reponse
