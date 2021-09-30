@@ -54,4 +54,4 @@ quit
 cd /home/fivem
 bash /home/fivem/run.sh +exec server.cfg
 ```
-Durée de l'instalaltion sur un VPS OVH : 04:49.625
+Durée de l'installation sur un VPS OVH : 04:49.625
