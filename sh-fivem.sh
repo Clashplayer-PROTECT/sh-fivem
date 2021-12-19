@@ -39,7 +39,7 @@ NC='\033[0m'                                                #no color
 # Prérequis installation Five M
 apt update -y
 apt upgrade -y
-apt install sudo xz-utils git curl screen sed -y
+apt install sudo xz-utils git curl screen -y
 
 #Installation de 5104
 echo
