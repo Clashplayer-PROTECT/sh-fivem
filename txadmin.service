@@ -1,0 +1,12 @@
+[Unit]
+Description=SH-FIVEM_TXADMIN
+
+[Service]
+WorkingDirectory=/home/fivem/
+ExecStart=/bin/sh /home/fivem/run.sh +set serverProfile dev_sh-fivem +set txAdminPort 40121
+KillMode=process
+Type=simple
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
