@@ -9,7 +9,7 @@ Alors arrêtez de faire les fous avec échec de l'installation en raison d'une d
 
 Ce script est révolutionnaire avec la technologie sans screen, en cas de problème sur votre serveur linux et que vous êtes obligé de redémarrer par la commande : [bash  /home/fivem/run.sh +exec server.cfg  ] plus besoin avec la technoligy cela est automatique !
 
- Si vous avez besoin d'aide ou avez une question sur le script, contactez-moi sur discord par Clashplayer#3630
+ Si vous avez besoin d'aide ou avez une question sur le script, contactez-moi sur discord par Clashplayer#2134
 
 Psss merci à MathiAs2Pique pour les quelques modifications :)
 
