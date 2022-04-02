@@ -19,7 +19,7 @@ NC='\033[0m'                                                #no color
 function OpenMENU() {
         printf "${COLOR3} Bienvenue sur le contrôleur SH-FIVEM ! \\n"
         printf "${COLOR2} Que voulez-vous faire ? \\n"
-        echo "   1) Création d'un serveur développement"
+        echo "   1) Création d'un second serveur pour le développement"
         echo "   2) Mettez à jour votre artefact"
         echo "   3) Installation d'une base FIVEM à partir de MEGA [BETA]"
       	echo "   4) Création d'un nouvel utilisateur PhpMyAdmin"
