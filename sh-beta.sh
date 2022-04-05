@@ -46,7 +46,7 @@ NC='\033[0m'                                                #no color
  
      printf "${COLOR1} Plus besoin du screen avec la version 2.1 de  \\n"
     printf "${COLOR1}©️  Copyright Tous droits réservés.©️ \\n"
-    dist=`grep DISTRIB_ID /etc/*-release | awk -F '=' '{print $2}'`
+dist=`grep DISTRIB_ID /etc/*-release | awk -F '=' '{print $2}'`
     if [ "$dist" == "Ubuntu" ]; then
         printf "${COLOR1}©️  Votre système d'exploitation est pris en charge par SH-FIVEM.©️ \\n"
     else
@@ -234,169 +234,23 @@ cat << "EOF"
 EOF
 }
 
+function SOON() {
+      printf "${COLOR2}💻 Bientôt sur SH-FIVEM ! \\n"
+        printf "${COLOR1} Télechargement de votre BASE depuis MEGA ! \\n"
+        printf "${COLOR1} Vous pourrez désormais crée un deuxième serveur pour le DEV ! \\n"
+        printf "${NC} \\n"
 
-function newPHPMYADMIN() {
-
-cat << "EOF"
- $$$$$$\  $$\   $$\         $$$$$$$$\ $$$$$$\ $$\    $$\ $$$$$$$$\ $$\      $$\        $$\    $$\  $$$$$$\  
-$$  __$$\ $$ |  $$ |        $$  _____|\_$$  _|$$ |   $$ |$$  _____|$$$\    $$$ |       $$ |   $$ |$$ ___$$\ 
-$$ /  \__|$$ |  $$ |        $$ |        $$ |  $$ |   $$ |$$ |      $$$$\  $$$$ |       $$ |   $$ |\_/   $$ |
-\$$$$$$\  $$$$$$$$ |$$$$$$\ $$$$$\      $$ |  \$$\  $$  |$$$$$\    $$\$$\$$ $$ |$$$$$$\\$$\  $$  |  $$$$$ / 
- \____$$\ $$  __$$ |\______|$$  __|     $$ |   \$$\$$  / $$  __|   $$ \$$$  $$ |\______|\$$\$$  /   \___$$\ 
-$$\   $$ |$$ |  $$ |        $$ |        $$ |    \$$$  /  $$ |      $$ |\$  /$$ |         \$$$  /  $$\   $$ |
-\$$$$$$  |$$ |  $$ |        $$ |      $$$$$$\    \$  /   $$$$$$$$\ $$ | \_/ $$ |          \$  /   \$$$$$$  |
- \______/ \__|  \__|        \__|      \______|    \_/    \________|\__|     \__|           \_/     \______/ 
-EOF
-
-sleep 2
-echo -n -e "${GREEN}Quel est l'utilisateur de votre base de données ❓ ${YELLOW}(sh-fivem)${reset}: "
-read -r DBUSER
-
-if [[ "$DBUSER" == "" ]]; then
-  DBUSER="sh-fivem"  
-fi
-
-sleep 2
-echo -n -e "${GREEN}Quel est le mot de passe de votre base de données ❓ ${reset}: "
-read -s -r DBPASS
-
-while true; do
-
-  if [[ "$DBPASS" == "" ]]; then
-    echo -e "${red}Le mot de passe doit être obligatoire !"
-    echo -n -e "${GREEN}Quel est le mot de passe de votre base de données ❓ ${reset}: "
-    read -s -r DBPASS
-  else
-    echo -e "${GREEN}Le mot de passe est correct !${reset}" 
-    break 
-  fi
-done 
-
-echo -e "Configuration de la utilisateur"
-  echo "Mettre le mot de passe root de MySQL"
-  sleep 2
-  mysql -e "CREATE USER '${DBUSER}'@'localhost' IDENTIFIED BY '${DBPASS}';"
-  mysql -p -e "GRANT ALL PRIVILEGES ON * . * TO '${DBUSER}'@'localhost';"
-  mysql -e "FLUSH PRIVILEGES;"
-
-
-EOF
-  
-  printf "${COLOR1} TOPO du MySQL \\n"
-  printf "${COLOR1} Lien du phpMyAdmin : http://$(hostname -I)/phpmyadmin/ \\n"
-  printf "${COLOR1} Nom d'utilisateur de la base de données MySQL: ${DBUSER}\\n"
-  printf "${COLOR1} Mot de passe de connexion base de données MySQL: ${DBPASS} \\n"
-
- 
-}
-
-
-function UpdateArtefact() {
-  cd /home/fivem/
-  rm -rf /home/fivem/alpine
-  rm -rf /home/fivem/cache
-RELEASE_PAGE=$(curl -sSL https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/)
-        if [ "${FIVEM_VERSION}" == "latest" ] || [ -z ${FIVEM_VERSION} ] ; then
-LATEST_RECOMMENDED=$(echo -e "${RELEASE_PAGE}" | grep "LATEST RECOMMENDED" -B1 | grep -Eo '".*/*.tar.xz"' | grep -Eo '".*"' | sed 's/\"//g' | sed 's/\.\///1' | grep -P '\d{4}-\S{40}\/fx\.tar\.xz')
-DOWNLOAD_LINK=$(echo https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/${LATEST_RECOMMENDED})
-else
-VERSION_LINK=$(echo -e "${RELEASE_PAGE}" | grep -Eo 'href=".*/*.tar.xz"' | grep -Eo '".*"' | sed 's/\"//g' | sed 's/\.\///1' | grep ${FIVEM_VERSION})
-        if [ "${VERSION_LINK}" == "" ]; then
-echo -e ""
-else
-DOWNLOAD_LINK=$(echo https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/${VERSION_LINK})
-        fi
-    fi
-if [ ! -z "${DOWNLOAD_URL}" ]; then
-    if curl --output /dev/null --silent --head --fail ${DOWNLOAD_URL}; then
-DOWNLOAD_LINK=${DOWNLOAD_URL}
-else
-echo -e ""
-        fi
-fi
-
-curl -sSL ${DOWNLOAD_LINK} -o ${DOWNLOAD_LINK##*/}
-
-   tar xvfJ fx.tar.xz
-    # Suppression du cache automatique
-    # sed -i '1irm -r cache' run.sh
-    rm fx.tar.xz
-
-}
-
-
-function UpdateArtefact-DEV() {
-  cd /home/fivem-dev/
-  rm -rf /home/fivem-dev/alpine
-  rm -rf /home/fivem-dev/cache
-RELEASE_PAGE=$(curl -sSL https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/)
-        if [ "${FIVEM_VERSION}" == "latest" ] || [ -z ${FIVEM_VERSION} ] ; then
-LATEST_RECOMMENDED=$(echo -e "${RELEASE_PAGE}" | grep "LATEST RECOMMENDED" -B1 | grep -Eo '".*/*.tar.xz"' | grep -Eo '".*"' | sed 's/\"//g' | sed 's/\.\///1' | grep -P '\d{4}-\S{40}\/fx\.tar\.xz')
-DOWNLOAD_LINK=$(echo https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/${LATEST_RECOMMENDED})
-else
-VERSION_LINK=$(echo -e "${RELEASE_PAGE}" | grep -Eo 'href=".*/*.tar.xz"' | grep -Eo '".*"' | sed 's/\"//g' | sed 's/\.\///1' | grep ${FIVEM_VERSION})
-        if [ "${VERSION_LINK}" == "" ]; then
-echo -e ""
-else
-DOWNLOAD_LINK=$(echo https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/${VERSION_LINK})
-        fi
-    fi
-if [ ! -z "${DOWNLOAD_URL}" ]; then
-    if curl --output /dev/null --silent --head --fail ${DOWNLOAD_URL}; then
-DOWNLOAD_LINK=${DOWNLOAD_URL}
-else
-echo -e ""
-        fi
-fi
-
-curl -sSL ${DOWNLOAD_LINK} -o ${DOWNLOAD_LINK##*/}
-
-   tar xvfJ fx.tar.xz
-    # Suppression du cache automatique
-    # sed -i '1irm -r cache' run.sh
-    rm fx.tar.xz
-
-}
-
-function installMEGA() {
-apt-get install megatools
-echo -n -e "${GREEN} Quel est le lien MEGA de votre base FIVEM ❓ ${YELLOW}()${reset}: "
-read -r ${LINKMEGADL}
-
-if [[ "$LINKMEGADL" == "" ]]; then
-  LINKDL=""  
-fi
-
-    cd /home/fivem/
-    mkdir download
-    cd /home/fivem/download
-    megadl "${LINKMEGADL}"
-    
-    printf "${COLOR1 } Normalement votre base FIVEM est téléchargée, vous pouvez la consulter à nouveau dans /home/fivem/download \\n"
-    printf "${COLOR1 } Si vous voulez dézipper, vous devez taper la commande unzip avec le nom de fichier  \\n"
-    printf "${COLOR1 } Exemple : unzip clashplayer.zip  \\n"
 
 
 }
-
-
-function install-GoogleDRIVE() {
-  printf "${COLOR1} Malheureusement cette fonctionnalité n'est pas encore disponible \\n"
-  OpenMENU
-  
-}
-
 
 function OpenMENU() {
         printf "${COLOR3} Bienvenue sur le contrôleur SH-FIVEM ! \\n"
         printf "${COLOR2} Que voulez-vous faire ? \\n"
         echo "   1) Création d'un second serveur pour le développement"
-        echo "   2) Mettez à jour votre artefact sur votre serveur principal"
-        echo "   3) Mettez à jour votre artefact sur votre serveur de développement"
-        echo "   4) Installation d'une base FIVEM à partir de MEGA [BETA]"
-      	echo "   5) Création d'un nouvel utilisateur PhpMyAdmin"
-        echo "   6) BACKUP GOOGLE DRIVE [dev]"
-	    echo "   7) Quitter"
+        echo "   2) Update votre artefact"
+      	echo "   3) Création d'un nouvel utilisateur PhpMyAdmin"
+	      echo "   4) Quitter"
         printf "${NC} \\n"
 
 	until [[ ${MENU_OPTION} =~ ^[1-4]$ ]]; do
@@ -409,25 +263,18 @@ function OpenMENU() {
 	2)
 		UpdateArtefact
 		;;
-    3)
-		UpdateArtefact2
-		;;    
-
-   4)
-		installMEGA
-		;;
-   5)
+   3)
 		newPHPMYADMIN
 		;;
-    6)
-		Backup-GoogleDRIVE
+       3)
+	  SOON
 		;;
-	7)
+
+	4)
 		exit 0
 		;;
 	esac
 }
-
 
 
 
