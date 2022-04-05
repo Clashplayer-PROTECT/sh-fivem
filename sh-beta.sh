@@ -237,7 +237,6 @@ EOF
 function SOON() {
       printf "${COLOR2}💻 Bientôt sur SH-FIVEM ! \\n"
         printf "${COLOR1} Télechargement de votre BASE depuis MEGA ! \\n"
-        printf "${COLOR1} Vous pourrez désormais crée un deuxième serveur pour le DEV ! \\n"
         printf "${NC} \\n"
 
 
@@ -247,10 +246,10 @@ function SOON() {
 function OpenMENU() {
         printf "${COLOR3} Bienvenue sur le contrôleur SH-FIVEM ! \\n"
         printf "${COLOR2} Que voulez-vous faire ? \\n"
-        echo "   1) Création d'un second serveur pour le développement"
-        echo "   2) Update votre artefact"
-      	echo "   3) Création d'un nouvel utilisateur PhpMyAdmin"
-	      echo "   4) Quitter"
+        echo "   1) Update votre artefact"
+      	echo "   2) Création d'un nouvel utilisateur PhpMyAdmin"
+        echo "   3) SOON"
+	      echo "   3) Quitter"
         printf "${NC} \\n"
 
 	until [[ ${MENU_OPTION} =~ ^[1-4]$ ]]; do
@@ -258,15 +257,12 @@ function OpenMENU() {
 	done
 	case "${MENU_OPTION}" in
 	1)
-		installFIVEM
-		;;
-	2)
 		UpdateArtefact
 		;;
-   3)
+  2)
 		newPHPMYADMIN
 		;;
-       3)
+  3)
 	  SOON
 		;;
 
