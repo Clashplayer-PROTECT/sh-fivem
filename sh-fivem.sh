@@ -72,6 +72,19 @@ printf "${CYAN} Démarrage technologie pour démarrer votre serveur fivem !"
 fi
 sleep 2
 
+#Installation de SYSTEMCTL | TXADMIN
+echo
+    printf "${YELLOW} Vous souhaitez disposer d'une nouvelle technologie pour démarrer votre serveur TXADMIN ?  ❓  [o/N]\\n"
+    read reponse
+if [[ "$reponse" == "o" ]]
+then 
+printf "${CYAN} Démarrage technologie pour démarrer votre serveur TXADMIN !"
+    cd /etc/systemd/system
+    wget https://raw.githubusercontent.com/Clashplayer-PROTECT/sh-fivem/master/txadmin.service
+    systemctl enable txadmin.service
+fi
+sleep 2
+
 # Installation MARIADB
 echo
     printf "${YELLOW} Souhaitez-vous créer une installation automatique de MariaDB   ❓ [o/N]\\n"
