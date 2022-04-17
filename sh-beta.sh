@@ -98,6 +98,7 @@ if [ ! -z "${DOWNLOAD_URL}" ]; then
   fi
 fi
 
+echo -e "Running curl -sSL ${DOWNLOAD_LINK} -o ${DOWNLOAD_LINK##*/}"
 
 curl -sSL ${DOWNLOAD_LINK} -o ${DOWNLOAD_LINK##*/}
 
@@ -241,10 +242,45 @@ cat << "EOF"
 EOF
 }
 
-function SOON() {
-      printf "${COLOR2}💻 Bientôt sur SH-FIVEM ! \\n"
-        printf "${COLOR1} Télechargement de votre BASE depuis MEGA ! \\n"
-        printf "${NC} \\n"
+function UpdateArtefact () {
+ cd /home/fivem/
+ rm -rf alpine/
+ RELEASE_PAGE=$(curl -sSL https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/)
+CHANGELOGS_PAGE=$(curl -sSL https://changelogs-live.fivem.net/api/changelog/versions/linux/server)
+
+if [[ "${FIVEM_VERSION}" == "latest" ]] || [[ -z ${FIVEM_VERSION} ]]; then
+  DOWNLOAD_LINK=$(echo $CHANGELOGS_PAGE | jq -r '.latest_download')
+else
+  VERSION_LINK=$(echo -e "${RELEASE_PAGE}" | grep -Eo '".*/*.tar.xz"' | grep -Eo '".*"' | sed 's/\"//g' | sed 's/\.\///1' | grep ${CFX_VERSION})
+  if [[ "${VERSION_LINK}" == "" ]]; then
+    echo -e "defaulting to latest as the version requested was invalid."
+    DOWNLOAD_LINK=$(echo $CHANGELOGS_PAGE | jq -r '.latest_download')
+  else
+    DOWNLOAD_LINK=$(echo https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/${VERSION_LINK})
+  fi
+fi
+
+if [ ! -z "${DOWNLOAD_URL}" ]; then
+  if curl --output /dev/null --silent --head --fail ${DOWNLOAD_URL}; then
+    echo -e "link is valid. setting download link to ${DOWNLOAD_URL}"
+    DOWNLOAD_LINK=${DOWNLOAD_URL}
+  else
+    echo -e "link is invalid closing out"
+    exit 2
+  fi
+fi
+
+echo -e "Running curl -sSL ${DOWNLOAD_LINK} -o ${DOWNLOAD_LINK##*/}"
+
+curl -sSL ${DOWNLOAD_LINK} -o ${DOWNLOAD_LINK##*/}
+
+    tar xvfJ fx.tar.xz
+    # Suppression du cache automatique
+    # sed -i '1irm -r cache' run.sh
+    rm fx.tar.xz
+fi
+
+ 
 
 
 
@@ -255,25 +291,20 @@ function OpenMENU() {
         printf "${COLOR2} Que voulez-vous faire ? \\n"
         echo "   1) Update votre artefact"
       	echo "   2) Création d'un nouvel utilisateur PhpMyAdmin"
-        echo "   3) SOON"
-	      echo "   3) Quitter"
+	echo "   3) Quitter"
         printf "${NC} \\n"
 
-	until [[ ${MENU_OPTION} =~ ^[1-4]$ ]]; do
-		read -rp "Sélectionnez une option [1-6]: " MENU_OPTION
+	until [[ ${MENU_OPTION} =~ ^[1-3]$ ]]; do
+		read -rp "Sélectionnez une option [1-3]: " MENU_OPTION
 	done
 	case "${MENU_OPTION}" in
 	1)
 		UpdateArtefact
 		;;
-  2)
+        2)
 		newPHPMYADMIN
 		;;
-  3)
-	  SOON
-		;;
-
-	4)
+	3)
 		exit 0
 		;;
 	esac
