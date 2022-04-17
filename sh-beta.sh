@@ -61,7 +61,7 @@ dist=`grep DISTRIB_ID /etc/*-release | awk -F '=' '{print $2}'`
 # Prérequis installation Five M
 apt update -y
 apt upgrade -y
-apt install sudo xz-utils git curl screen -y
+apt install sudo xz-utils git curl screen jq -y
 
 #Installation de LATEST
 echo
@@ -70,30 +70,37 @@ echo
 if [[ "$reponse" == "o" ]]
 then 
 printf "${CYAN} Démarrage de l'instalaltion de version de LATEST pour serveur Five M !"
-    cd /home/
-    mkdir -p fivem
-    cd /home/fivem
+cd /home/
+mkdir -p fivem
+cd /home/fivem
 RELEASE_PAGE=$(curl -sSL https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/)
-        if [ "${FIVEM_VERSION}" == "latest" ] || [ -z ${FIVEM_VERSION} ] ; then
-LATEST_RECOMMENDED=$(echo -e "${RELEASE_PAGE}" | grep "LATEST RECOMMENDED" -B1 | grep -Eo '".*/*.tar.xz"' | grep -Eo '".*"' | sed 's/\"//g' | sed 's/\.\///1' | grep -P '\d{4}-\S{40}\/fx\.tar\.xz')
-DOWNLOAD_LINK=$(echo https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/${LATEST_RECOMMENDED})
+CHANGELOGS_PAGE=$(curl -sSL https://changelogs-live.fivem.net/api/changelog/versions/linux/server)
+
+if [[ "${FIVEM_VERSION}" == "latest" ]] || [[ -z ${FIVEM_VERSION} ]]; then
+  DOWNLOAD_LINK=$(echo $CHANGELOGS_PAGE | jq -r '.latest_download')
 else
-VERSION_LINK=$(echo -e "${RELEASE_PAGE}" | grep -Eo 'href=".*/*.tar.xz"' | grep -Eo '".*"' | sed 's/\"//g' | sed 's/\.\///1' | grep ${FIVEM_VERSION})
-        if [ "${VERSION_LINK}" == "" ]; then
-echo -e ""
-else
-DOWNLOAD_LINK=$(echo https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/${VERSION_LINK})
-        fi
-    fi
-if [ ! -z "${DOWNLOAD_URL}" ]; then
-    if curl --output /dev/null --silent --head --fail ${DOWNLOAD_URL}; then
-DOWNLOAD_LINK=${DOWNLOAD_URL}
-else
-echo -e ""
-        fi
+  VERSION_LINK=$(echo -e "${RELEASE_PAGE}" | grep -Eo '".*/*.tar.xz"' | grep -Eo '".*"' | sed 's/\"//g' | sed 's/\.\///1' | grep ${CFX_VERSION})
+  if [[ "${VERSION_LINK}" == "" ]]; then
+    echo -e "defaulting to latest as the version requested was invalid."
+    DOWNLOAD_LINK=$(echo $CHANGELOGS_PAGE | jq -r '.latest_download')
+  else
+    DOWNLOAD_LINK=$(echo https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/${VERSION_LINK})
+  fi
 fi
 
-curl -sSL ${DOWNLOAD_LINK} -o ${DOWNLOAD_LINK##*/}    
+if [ ! -z "${DOWNLOAD_URL}" ]; then
+  if curl --output /dev/null --silent --head --fail ${DOWNLOAD_URL}; then
+    echo -e "link is valid. setting download link to ${DOWNLOAD_URL}"
+    DOWNLOAD_LINK=${DOWNLOAD_URL}
+  else
+    echo -e "link is invalid closing out"
+    exit 2
+  fi
+fi
+
+
+curl -sSL ${DOWNLOAD_LINK} -o ${DOWNLOAD_LINK##*/}
+
     tar xvfJ fx.tar.xz
     # Suppression du cache automatique
     # sed -i '1irm -r cache' run.sh
