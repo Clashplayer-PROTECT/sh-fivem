@@ -88,17 +88,7 @@ else
   fi
 fi
 
-if [ ! -z "${DOWNLOAD_URL}" ]; then
-  if curl --output /dev/null --silent --head --fail ${DOWNLOAD_URL}; then
-    echo -e "link is valid. setting download link to ${DOWNLOAD_URL}"
-    DOWNLOAD_LINK=${DOWNLOAD_URL}
-  else
-    echo -e "link is invalid closing out"
-    exit 2
-  fi
-fi
 
-echo -e "Running curl -sSL ${DOWNLOAD_LINK} -o ${DOWNLOAD_LINK##*/}"
 
 curl -sSL ${DOWNLOAD_LINK} -o ${DOWNLOAD_LINK##*/}
 
@@ -260,17 +250,7 @@ else
   fi
 fi
 
-if [ ! -z "${DOWNLOAD_URL}" ]; then
-  if curl --output /dev/null --silent --head --fail ${DOWNLOAD_URL}; then
-    echo -e "link is valid. setting download link to ${DOWNLOAD_URL}"
-    DOWNLOAD_LINK=${DOWNLOAD_URL}
-  else
-    echo -e "link is invalid closing out"
-    exit 2
-  fi
-fi
 
-echo -e "Running curl -sSL ${DOWNLOAD_LINK} -o ${DOWNLOAD_LINK##*/}"
 
 curl -sSL ${DOWNLOAD_LINK} -o ${DOWNLOAD_LINK##*/}
 
@@ -278,12 +258,6 @@ curl -sSL ${DOWNLOAD_LINK} -o ${DOWNLOAD_LINK##*/}
     # Suppression du cache automatique
     # sed -i '1irm -r cache' run.sh
     rm fx.tar.xz
-fi
-
- 
-
-
-
 }
 
 function OpenMENU() {
