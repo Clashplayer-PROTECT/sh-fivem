@@ -140,7 +140,7 @@ printf "${CYAN} Démarrage de l'instalaltion de MariaDB pour serveur FiveM !"
     apt update -y
     sudo add-apt-repository ppa:ondrej/php
     sudo apt-get update -y
-    apt -y install php8.0 php8.0-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} mariadb-server nginx tar unzip git redis-server
+    apt -y install php8.0 php8.0-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} mariadb-server tar unzip git redis-server
     php -v
 
 fi
