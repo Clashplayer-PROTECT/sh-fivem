@@ -121,7 +121,7 @@ then
 printf "${CYAN} Démarrage technologie pour démarrer votre serveur fivem avec TXadmin !"
     cd /etc/systemd/system
     wget https://raw.githubusercontent.com/Clashplayer-PROTECT/sh-fivem/master/txadmin.service
-    systemctl enable fivem.service
+    systemctl enable txadmin.service
 fi
 sleep 2
 
