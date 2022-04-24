@@ -140,7 +140,7 @@ printf "${CYAN} Démarrage de l'instalaltion de MariaDB pour serveur FiveM !"
     apt update -y
     sudo add-apt-repository ppa:ondrej/php
     sudo apt-get update -y
-    apt -y install php8.0-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} apache2 mariadb-server tar unzip git redis-server
+    apt -y install php8.*-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} apache2 mariadb-server tar unzip git redis-server
     php -v
 
 fi
@@ -219,7 +219,6 @@ echo "SUCCES 202" > /etc/sh-fivem/sh-install
     printf "${COLOR2}💻 Chemin du dossier  : /home/fivem \\n"
     printf "${COLOR2}💻 Ne surtout pas supprime run.sh et alpine\\n"
     printf "${COLOR2}💻 Ligne FiveM MySQL : \\n"
-    printf "${NC}\\n set mysql_connection_string "server=127.0.0.1;uid=${DBUSER};password=${DBPASS};database=${DBNAME}"\\n"
 }
 
 function UpdateArtefact () {
