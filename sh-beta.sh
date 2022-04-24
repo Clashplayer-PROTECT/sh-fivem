@@ -200,6 +200,10 @@ echo -e "Configuration de la utilisateur"
   
 
   sleep 3
+
+mkdir /etc/sh-fivem/
+echo "SUCCES 202" > /etc/sh-fivem/sh-install
+
     printf "${COLOR3} L'installation est terminée ! \\n"
     printf "${COLOR3} Discord de SH-FIVEM : https://discord.gg/Bx5UUV54mu \\n"
     printf "${COLOR3} Github de Clahsplayer sur SH-FIVEM: https://github.com/Clashplayer-PROTECT/sh-fivem \\n"
@@ -214,22 +218,8 @@ echo -e "Configuration de la utilisateur"
     printf "${COLOR2}💻 TOPO sur créaction de votre seveur ! \\n"
     printf "${COLOR2}💻 Chemin du dossier  : /home/fivem \\n"
     printf "${COLOR2}💻 Ne surtout pas supprime run.sh et alpine\\n"
-    printf "${NC}\\n"    
-
-mkdir /etc/sh-fivem/
-echo "SUCCES 202" > /etc/sh-fivem/sh-install
-
-
-cat << "EOF"
-  /$$$$$$  /$$   /$$         /$$$$$$$  /$$$$$$$$ /$$$$$$$$ /$$$$$$ 
- /$$__  $$| $$  | $$        | $$__  $$| $$_____/|__  $$__//$$__  $$
-| $$  \__/| $$  | $$        | $$  \ $$| $$         | $$  | $$  \ $$
-|  $$$$$$ | $$$$$$$$ /$$$$$$| $$$$$$$ | $$$$$      | $$  | $$$$$$$$
- \____  $$| $$__  $$|______/| $$__  $$| $$__/      | $$  | $$__  $$
- /$$  \ $$| $$  | $$        | $$  \ $$| $$         | $$  | $$  | $$
-|  $$$$$$/| $$  | $$        | $$$$$$$/| $$$$$$$$   | $$  | $$  | $$
- \______/ |__/  |__/        |_______/ |________/   |__/  |__/  |__/
-EOF
+    printf "${COLOR2}💻 Ligne FiveM MySQL : \\n"
+    printf "${NC}\\n set mysql_connection_string "server=127.0.0.1;uid=${DBUSER};password=${DBPASS};database=${DBNAME}"\\n"
 }
 
 function UpdateArtefact () {
