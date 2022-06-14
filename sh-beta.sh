@@ -48,6 +48,7 @@ NC='\033[0m'                                                #no color
     printf "${COLOR1}©️  Copyright Tous droits réservés.©️ \\n"
 dist=`grep DISTRIB_ID /etc/*-release | awk -F '=' '{print $2}'`
     if [ "$dist" == "Ubuntu" ]; then
+        if [ "$dist" == "Debian" ]; then
         printf "${COLOR1}©️  Votre système d'exploitation est pris en charge par SH-FIVEM.©️ \\n"
     else
     printf "${COLOR2}💻 Malheureusement votre système d'exploitation n'est pas pris en charge par SH-FIVEM  💻\\n"
