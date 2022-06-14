@@ -25,6 +25,10 @@ apt install bash
 bash <(wget -O - 'https://raw.githubusercontent.com/Clashplayer-PROTECT/sh-fivem/master/sh-fivem.sh')
 ```
 
+# Lien de l'installation BETA :
+```
+bash <(wget -O - 'https://raw.githubusercontent.com/Clashplayer-PROTECT/sh-fivem/master/sh-beta.sh')
+```
 
 
 # Start & Restart & Stop & Status votre serveur avec la nouvelle technologie !
