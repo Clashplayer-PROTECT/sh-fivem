@@ -46,6 +46,7 @@ NC='\033[0m'                                                #no color
  
      printf "${COLOR1} Plus besoin du screen avec la version 2.1 de  \\n"
     printf "${COLOR1}©️  Copyright Tous droits réservés.©️ \\n"
+        printf "${COLOR1}PROD : v2.4.2 \\n"
 dist=`grep DISTRIB_ID /etc/*-release | awk -F '=' '{print $2}'`
  #   if [ "$dist" == "Ubuntu" ]; then
   #      printf "${COLOR1}©️  Votre système d'exploitation est pris en charge par SH-FIVEM.©️ \\n"
