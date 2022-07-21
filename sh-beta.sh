@@ -15,9 +15,13 @@ COLOR3='\33[0;33m'
 COLOR4='\033[1;35m'
 NC='\033[0m'                                                #no color
 
+MYSQL_PASSWORD=""
 
-
-
+# MySQL password Generator
+  web-pw=$(
+    tr -dc 'A-Za-z0-9!"#$%&()*+,-./:;<=>?@[\]^_`{|}~' </dev/urandom | head -c 64
+    echo
+  )
 
 function installFIVEM() {
 cat << "EOF"
@@ -101,39 +105,36 @@ fi
 sleep 2
 
 #Installation de SYSTEMCTL
-echo
-    printf "${YELLOW} Vous souhaitez disposer d'une nouvelle technologie pour démarrer votre serveur fivem ?  ❓  [o/N]\\n"
-    read reponse
-if [[ "$reponse" == "o" ]]
-then 
-printf "${CYAN} Démarrage technologie pour démarrer votre serveur fivem !"
-    cd /etc/systemd/system
-    wget https://raw.githubusercontent.com/Clashplayer-PROTECT/sh-fivem/master/fivem.service
-    systemctl enable fivem.service
-fi
-sleep 2
+#echo
+ #   printf "${YELLOW} Vous souhaitez disposer d'une nouvelle technologie pour démarrer votre serveur fivem ?  ❓  [o/N]\\n"
+  #  read reponse
+# if [[ "$reponse" == "o" ]]
+# then 
+# printf "${CYAN} Démarrage technologie pour démarrer votre serveur fivem !"
+  #   cd /etc/systemd/system
+   #  wget https://raw.githubusercontent.com/Clashplayer-PROTECT/sh-fivem/master/fivem.service
+    #  systemctl enable fivem.service
+#  fi
+#  sleep 2
 
 #Installation de SYSTEMCTL TXADMIN
-echo
-    printf "${YELLOW} Vous souhaitez disposer d'une nouvelle technologie pour démarrer votre serveur fivem avec TXadmin ?  ❓  [o/N]\\n"
-    read reponse
-if [[ "$reponse" == "o" ]]
-then 
-printf "${CYAN} Démarrage technologie pour démarrer votre serveur fivem avec TXadmin !"
-    cd /etc/systemd/system
-    wget https://raw.githubusercontent.com/Clashplayer-PROTECT/sh-fivem/master/txadmin.service
-    systemctl enable txadmin.service
-fi
-sleep 2
+# echo
+#     printf "${YELLOW} Vous souhaitez disposer d'une nouvelle technologie pour démarrer votre serveur fivem avec TXadmin ?  ❓  [o/N]\\n"
+#     read reponse
+# if [[ "$reponse" == "o" ]]
+# then 
+# printf "${CYAN} Démarrage technologie pour démarrer votre serveur fivem avec TXadmin !"
+  #   cd /etc/systemd/system
+    # wget https://raw.githubusercontent.com/Clashplayer-PROTECT/sh-fivem/master/txadmin.service
+    # systemctl enable txadmin.service
+# fi
+# sleep 2
 
 
 # Installation MARIADB
 echo
-    printf "${YELLOW} Souhaitez-vous créer une installation automatique de MariaDB   ❓ [o/N]\\n"
-    read reponse
-if [[ "$reponse" == "o" ]]
-then 
 printf "${CYAN} Démarrage de l'instalaltion de MariaDB pour serveur FiveM !"
+speed 4
     apt -y install software-properties-common curl apt-transport-https ca-certificates gnupg
     LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php
     add-apt-repository -y ppa:chris-lea/redis-server
@@ -143,9 +144,11 @@ printf "${CYAN} Démarrage de l'instalaltion de MariaDB pour serveur FiveM !"
     sudo apt-get update -y
     apt -y install php8.*-{cli,gd,mysql,pdo,mbstring,tokenizer,bcmath,xml,fpm,curl,zip} apache2 mariadb-server tar unzip git redis-server
     php -v
+printf "${CYAN} Ready MYSQL !"
 
 fi
 sleep 2
+
 
 echo -n -e "${GREEN}Quel est le nom de votre base de données ❓ ${YELLOW}(sh_base)${reset}: "
 read -r DBNAME
@@ -163,20 +166,8 @@ if [[ "$DBUSER" == "" ]]; then
 fi
 
 sleep 2
-echo -n -e "${GREEN}Quel est le mot de passe de votre base de données ❓ ${reset}: "
-read -s -r DBPASS
-
-while true; do
-
-  if [[ "$DBPASS" == "" ]]; then
-    echo -e "${red}Le mot de passe doit être obligatoire !"
-    echo -n -e "${GREEN}Quel est le mot de passe de votre base de données ❓ ${reset}: "
-    read -s -r DBPASS
-  else
-    echo -e "${GREEN}Le mot de passe est correct !${reset}" 
-    break 
-  fi
-done 
+ 
+  password_input DBPASS "Quel est le mot de passe de votre base de données ❓  (Appuyez sur la touche Entrée pour utiliser le mot de passe généré aléatoirement): " "Le mot de passe MySQL ne peut pas être vide" "$rand_pw"
 
 
 #Installation PHPMYADMIN
@@ -272,6 +263,43 @@ function OpenMENU() {
 		exit 0
 		;;
 	esac
+}
+
+
+function password_input() {
+  local __resultvar=$1
+  local result=''
+  local default="$4"
+
+  while [ -z "$result" ]; do
+    echo -n "* ${2}"
+
+    # modified from https://stackoverflow.com/a/22940001
+    while IFS= read -r -s -n1 char; do
+      [[ -z $char ]] && {
+        printf '\n'
+        break
+      }                               # ENTER pressed; output \n and break.
+      if [[ $char == $'\x7f' ]]; then # backspace was pressed
+        # Only if variable is not empty
+        if [ -n "$result" ]; then
+          # Remove last char from output variable.
+          [[ -n $result ]] && result=${result%?}
+          # Erase '*' to the left.
+          printf '\b \b'
+        fi
+      else
+        # Add typed char to output variable.
+        result+=$char
+        # Print '*' in its stead.
+        printf '*'
+      fi
+    done
+    [ -z "$result" ] && [ -n "$default" ] && result="$default"
+    [ -z "$result" ] && print_error "${3}"
+  done
+
+  eval "$__resultvar="'$result'""
 }
 
 
