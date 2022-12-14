@@ -51,7 +51,7 @@ printf "${CYAN} Démarrage de l'instalaltion de version de 5104 pour serveur Fiv
     cd /home/
     mkdir -p fivem
     cd /home/fivem
-    wget  https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/5562-25984c7003de26d4a222e897a782bb1f22bebedd/fx.tar.xz
+    wget  https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/5848-4f71128ee48b07026d6d7229a60ebc5f40f2b9db/fx.tar.xz
     tar xvfJ fx.tar.xz
     # Suppression du cache automatique
     # sed -i '1irm -r cache' run.sh
