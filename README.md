@@ -63,3 +63,8 @@ cd /home/fivem
 bash /home/fivem/run.sh +exec server.cfg
 ```
 Durée de l'installation sur un VPS OVH : 04:49.625
+
+
+# FIN DE LA MAINTENANCE SYSTEME DE UBUNTU 18.04
+# 01/02/2023
+# Passage sous DEBIAN 11.5
