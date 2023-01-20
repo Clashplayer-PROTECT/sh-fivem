@@ -22,14 +22,13 @@ apt install bash
 
 # Lien de l'installation :
 ```
-bash <(wget -O - 'https://raw.githubusercontent.com/Clashplayer-PROTECT/sh-fivem/master/sh-fivem.sh')
+bash <(wget -O - 'https://raw.githubusercontent.com/Clashplayer-PROTECT/sh-fivem/master/sh-fivem-new.sh')
 ```
 
-# Lien de l'installation BETA :
+# Update UpdateArtefact
 ```
-bash <(wget -O - 'https://raw.githubusercontent.com/Clashplayer-PROTECT/sh-fivem/master/sh-beta.sh')
+./sh-fivem-new.sh
 ```
-
 
 
 # Vous souhaitre crée un deuxième user ?
