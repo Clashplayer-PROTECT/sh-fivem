@@ -13,6 +13,7 @@ Ce script est révolutionnaire avec la technologie sans screen, en cas de probl�
 
 Psss merci à MathiAs2Pique pour les quelques modifications :)
 
+# Ubuntu n'est plus supporté par ce script.
 
 
 # Si BASH n'est pas installé :
@@ -54,5 +55,5 @@ Durée de l'installation sur un VPS OVH : 04:49.625
 
 
 # FIN DE LA MAINTENANCE SYSTEME DE UBUNTU 18.04
-# 01/02/2023
+# 20/01/2023
 # Passage sous DEBIAN 11.5
