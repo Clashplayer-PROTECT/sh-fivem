@@ -41,9 +41,7 @@ FLUSH PRIVILEGES;
 quit
 ```
 
-# SOON V3
-Disponible sous VERSION UBUNTU 21.04
-UPGRADE Version PHP 7.0 vers 8.0
+
 
 
 ## Démarage de votre serveur sans la nouvelle technologie !
