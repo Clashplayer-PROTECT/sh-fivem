@@ -1,4 +1,4 @@
-# Installation automatique pour un serveur fivem avec mysql uniquement sur DEBIAN 11.5
+# Installation automatique pour un serveur fivem avec mysql uniquement sur DEBIAN 11
 
 Fatigué d'être géré par un hébergeur GAME et vous souhaitez avoir un VPS ou un serveur dédié pour votre serveur sous LINUX.
 Mais vous savez qu'il est compliqué de gérer un serveur linux avec l'installation de MYSQL, PHPMYADMIN, Artefacts LATEST RECOMMENDED FIVEM, la création d'un identifiant MYSQL pour PHPMYADMIN.
