@@ -60,7 +60,7 @@ dist=`grep DISTRIB_ID /etc/*-release | awk -F '=' '{print $2}'`
 # Prérequis installation Five M
 apt update -y
 apt upgrade -y
-apt install sudo xz-utils  screen jq zip -y
+apt install sudo xz-utils  screen jq zip curl -y
 chmod 777 sh-fivem.sh
 
 #Installation de LATEST
@@ -162,9 +162,9 @@ then
 printf "${CYAN} Démarrage de l'instalaltion de phpMyAdmin pour serveur Five M !"
     curl -s https://files.phpmyadmin.net/phpMyAdmin/5.2.1/phpMyAdmin-5.2.1-all-languages.zip
     mkdir -p /usr/share/phpmyadmin/ || exit
-    wget https://files.phpmyadmin.net/phpMyAdmin/"$PHPMYADMIN_VER"/phpMyAdmin-"$PHPMYADMIN_VER"-all-languages.tar.gz -O /usr/share/phpmyadmin/phpMyAdmin-"$PHPMYADMIN_VER"-all-languages.tar.gz
-    tar xzf /usr/share/phpmyadmin/phpMyAdmin-"$PHPMYADMIN_VER"-all-languages.tar.gz --strip-components=1 --directory /usr/share/phpmyadmin
-    rm -f /usr/share/phpmyadmin/phpMyAdmin-"$PHPMYADMIN_VER"-all-languages.tar.gz
+    wget https://files.phpmyadmin.net/phpMyAdmin/5.2.1/phpMyAdmin-5.2.1-all-languages.zip -O /usr/share/phpmyadmin/phpMyAdmin-5.2.1-all-languages.tar.gz
+    tar xzf /usr/share/phpmyadmin/phpMyAdmin-5.2.1-all-languages.tar.gz --strip-components=1 --directory /usr/share/phpmyadmin
+    rm -f /usr/share/phpmyadmin/phpMyAdmin-5.2.1-all-languages.tar.gz
     # Create phpMyAdmin TempDir
     mkdir -p /usr/share/phpmyadmin/tmp || exit
     chown www-data:www-data /usr/share/phpmyadmin/tmp
