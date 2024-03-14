@@ -163,7 +163,8 @@ printf "${CYAN} Démarrage de l'instalaltion de phpMyAdmin pour serveur Five M !
     wget https://files.phpmyadmin.net/phpMyAdmin/5.2.1/phpMyAdmin-5.2.1-all-languages.zip
     mkdir -p /usr/share/phpmyadmin/ || exit
     wget https://files.phpmyadmin.net/phpMyAdmin/5.2.1/phpMyAdmin-5.2.1-all-languages.zip -O /usr/share/phpmyadmin/phpMyAdmin-5.2.1-all-languages.tar.gz
-    tar xzf /usr/share/phpmyadmin/phpMyAdmin-5.2.1-all-languages.tar.gz --strip-components=1 --directory /usr/share/phpmyadmin
+    cd /usr/share/phpmyadmin
+    unzip /usr/share/phpmyadmin/phpMyAdmin-5.2.1-all-languages.tar.gz
     rm -f /usr/share/phpmyadmin/phpMyAdmin-5.2.1-all-languages.tar.gz
     # Create phpMyAdmin TempDir
     mkdir -p /usr/share/phpmyadmin/tmp || exit
