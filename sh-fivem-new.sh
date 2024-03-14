@@ -160,7 +160,7 @@ echo
 if [[ "$reponse" == "o" ]]
 then 
 printf "${CYAN} Démarrage de l'instalaltion de phpMyAdmin pour serveur Five M !"
-    curl -s https://files.phpmyadmin.net/phpMyAdmin/5.2.1/phpMyAdmin-5.2.1-all-languages.zip
+    wget https://files.phpmyadmin.net/phpMyAdmin/5.2.1/phpMyAdmin-5.2.1-all-languages.zip
     mkdir -p /usr/share/phpmyadmin/ || exit
     wget https://files.phpmyadmin.net/phpMyAdmin/5.2.1/phpMyAdmin-5.2.1-all-languages.zip -O /usr/share/phpmyadmin/phpMyAdmin-5.2.1-all-languages.tar.gz
     tar xzf /usr/share/phpmyadmin/phpMyAdmin-5.2.1-all-languages.tar.gz --strip-components=1 --directory /usr/share/phpmyadmin
